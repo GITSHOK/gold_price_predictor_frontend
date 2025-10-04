@@ -1,7 +1,6 @@
 // App.jsx
 import React, { useState } from "react";
 import "./App.css";
-const backendURL = process.env.BACK_LINK;
 function App() {
   const [inputs, setInputs] = useState({
     spx: "",
@@ -31,7 +30,7 @@ function App() {
         parseFloat(inputs.eurUsd)  // Updated here too
       ];
 
-      const response = await fetch(backendURL, {
+      const response = await fetch("https://gold-price-detector-backend.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ features })
